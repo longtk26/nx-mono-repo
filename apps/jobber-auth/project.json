@@ -6,7 +6,7 @@
   "tags": [],
   "targets": {
     "build": {
-      "dependsOn": ["generate-types", "migrate-dev"],
+      "dependsOn": ["generate-types"],
       "executor": "nx:run-commands",
       "options": {
         "command": "webpack-cli build",
