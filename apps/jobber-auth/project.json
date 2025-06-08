@@ -6,7 +6,7 @@
   "tags": [],
   "targets": {
     "build": {
-      "dependsOn": ["generate-types"],
+      "dependsOn": ["generate-types", "migrate-dev"],
       "executor": "nx:run-commands",
       "options": {
         "command": "webpack-cli build",
@@ -25,7 +25,7 @@
       "dependsOn": ["build"],
       "options": {
         "buildTarget": "jobber-auth:build",
-        "runBuildTargetDependencies": true
+        "runBuildTargetDependencies": false
       },
       "configurations": {
         "development": {
@@ -49,7 +49,9 @@
       }
     },
     "test": {
-      "dependsOn": ["generate-types"]
+      "options": {
+        "passWithNoTests": true
+      }
     }
   }
 }
